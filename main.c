@@ -11,7 +11,7 @@ int input_new_number_system() {
     return arg;
 }
 
-//проверка на ввод числа для преобразование в другую СС
+//checking for entering a number for conversion to another NS
 double input_number(){
 	double arg;
     printf("Enter a new number:\t");
@@ -22,15 +22,16 @@ double input_number(){
     return arg;
 }
 
-//определение размера массива для целой части
-//для new_number_system_for_base
+
+//determining the size of an array for an integer part
+//for new_number_system_for_base
 int size_for_massive(int arg, int base){
 	int i = 0, j;
 	for(j = arg ; j <= base ; i++) j *= arg;
 	return i;
 }
 
-//получение целой части числа в новой СС 
+//getting the integer part of a number in a new NS
 void new_number_system_for_base(int base, int arg){
 	int size = size_for_massive(arg, base);
 	if (size==0) printf("%d", 0);
@@ -42,7 +43,7 @@ void new_number_system_for_base(int base, int arg){
 	for (i-=1; i>=0; i--) printf("%X", new_base[i]);
 }
 
-//получение дробной части числа в новой СС
+//getting the fractional part of a number in a new NS
 void new_number_system_for_fraction(double fraction, int arg)
 {
 	int i;
@@ -55,11 +56,11 @@ void new_number_system_for_fraction(double fraction, int arg)
 int main(){
 	int arg = input_new_number_system();
 	double num = input_number();
- 	double fraction = num - (int)num; //дробная часть
- 	int base = (int)num; //целая часть
- 	new_number_system_for_base(base, arg);//СС целой
- 	if (fraction!=0.0000000) printf(".");//разделитель
- 	new_number_system_for_fraction(fraction, arg);//СС дробной
+ 	double fraction = num - (int)num; //fractional part
+ 	int base = (int)num; //the whole part
+ 	new_number_system_for_base(base, arg);//SN whole part
+ 	if (fraction!=0.0000000) printf(".");//separator
+ 	new_number_system_for_fraction(fraction, arg);//SN fraction part
  	printf("\n");
 	return 0;
 }
